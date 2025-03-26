@@ -1,0 +1,148 @@
+validation_rules:
+- Technical Field Name: CustomerID
+  Is Column Mandatory: Optional
+  Regex: ^[A-Za-z0-9]+$
+  Anomaly Message: 'Invalid data in ''CustomerID''. Expected: Report the unique internal
+    identifier for the customer relationship under which the obligor''s exposure is
+    aggregated in the reporting entity''s credit systems. Customer ID is a relationship
+    concept under which multiple borrowers are aggregated because they have related
+    risks, including, but not limited to parent/subsidiary relationships. For stand-alone
+    or ultimate parent obligors, the Customer ID may be the same as the unique internal
+    identifier for the obligor provided in Field 2. with allowed values Must not contain
+    a carriage return, line feed, comma or any unprintable character..'
+- Technical Field Name: InternalObligorID
+  Is Column Mandatory: Optional
+  Regex: ^[^\r\n,\pZ]+$
+  Anomaly Message: 'Invalid data in ''InternalObligorID''. Expected: Report the reporting
+    entity''s unique internal identifier for the obligor. Internal ID is a borrower
+    concept that identifies the entity under which multiple loans are aggregated.
+    with allowed values Must not contain a carriage return, line feed, comma or any
+    unprintable character..'
+- Technical Field Name: OriginalInternalObligorID
+  Is Column Mandatory: Optional
+  Regex: ^[^\r\n,\p{Cntrl}][0-9]*$
+  Anomaly Message: 'Invalid data in ''OriginalInternalObligorID''. Expected: Report
+    the internal identification code assigned to the obligor in the previous submission.
+    If there is no change from the prior submission, or if this is the first submission,
+    the Internal ID reported in Field 2 should be used as the Original Internal ID.
+    with allowed values Must not contain a carriage return, line feed, comma or any
+    unprintable character..'
+- Technical Field Name: ObligorName
+  Is Column Mandatory: Optional
+  Regex: ^(?!\r\n|[,\s\p{Cntrl}])((\w+\s)*\w+)($|[\s]*(Individual))?$
+  Anomaly Message: 'Invalid data in ''ObligorName''. Expected: Report the obligor
+    name on the credit facility. Full legal corporate name is desirable. If the borrowing
+    entity is an individual(s) (Natural Person(s)), do not report the name; instead
+    substitute with the text: "Individual." For fronting exposures, report legal name
+    of the participant lender. with allowed values Must not contain a carriage return,
+    line feed, comma or any unprintable character..'
+- Technical Field Name: City
+  Is Column Mandatory: Optional
+  Regex: ^[a-zA-Z\s'-]{2,50}$
+  Anomaly Message: 'Invalid data in ''City''. Expected: Report the name of the city
+    in which the obligor is domiciled (as defined in the FR Y-9C Glossary entry for
+    "domicile"). with allowed values Free text indicating the City where the Obligor
+    is domiciled..'
+- Technical Field Name: Country
+  Is Column Mandatory: Optional
+  Regex: ^[A-Za-z]{2}$
+  Anomaly Message: 'Invalid data in ''Country''. Expected: Report the domicile of
+    the obligor (as defined in the FR Y-9C Glossary entry for "domicile"). with allowed
+    values Use the 2 letter Country Code22.'
+- Technical Field Name: ZipCodeForeignMailingCode
+  Is Column Mandatory: Optional
+  Regex: '`^[0-9]{5}(-\d{4})?|(GU[- ]9[6-9]|MP|AS|AA|AP|PW|FM|MH)[- ]\d{5}|[A-Za-z]{2}\d{3,5}$`
+
+
+    This pattern includes:
+
+    1. Matches 5 digits (US Zip Code), optionally followed by a hyphen and 4 more
+    digits. Leading zeroes are allowed.
+
+    2. Matches the postal codes for the specified US territories (Guam, Puerto Rico,
+    U.S. Virgin Islands, American Samoa, Northern Mariana Islands, Palau, Micronesia,
+    Marshall Islands) followed by a space and 5 digits.
+
+    3. Matches 2 alphabets followed by 3 to 5 digits for international postal codes
+    (e.g., GB12345, DE98765).'
+  Anomaly Message: 'Invalid data in ''ZipCodeForeignMailingCode''. Expected: Report
+    the five-digit zip code for locations within the 50 US states, Washington DC,
+    Puerto Rico, the US Virgin Islands, Guam, Palau, Micronesia, the Northern Marianas,
+    or the Marshall Islands. For all other locations report the foreign mailing code
+    for the domicile of the obligor (as defined in the FR Y-9C Glossary entry for
+    "domicile"). with allowed values For locations within the 50 US states, Washington
+    DC, Puerto Rico, the US Virgin Islands, Guam, Palau, Micronesia, the Northern
+    Marianas, or the Marshall Islands: five-digit ZIP code. If the ZIP code begins
+    with zeroes, leading zeroes must be specified with no punctuation. For International:
+    use country specific postal code..'
+- Technical Field Name: IndustryCode
+  Is Column Mandatory: Optional
+  Regex: ^\d{4,6}$|^[A-Z]{2}\d{3,6}$
+  Anomaly Message: 'Invalid data in ''IndustryCode''. Expected: Report the numeric
+    code that describes the primary business activity of the obligor according to
+    the North American Industry Classification System (NAICS). If the NAICS code is
+    not available, provide either the Standard Industrial Classification (SIC), or
+    Global Industry Classification Standard (GICS). If the obligor is an individual,
+    the industry code should be consistent with the industry in which the commercial
+    purpose of the loan operates. If the business or individual operates in multiple
+    industries, the BHC or IHC or SLHC should report the industry that best represents
+    the commercial risk of the loan (i.e., the predominant industry). with allowed
+    values Report 4 to 6 digit number. If this code is not available, then provide
+    a SIC or GICS industry code..'
+- Technical Field Name: IndustryCodeType
+  Is Column Mandatory: Optional
+  Regex: ^(?:NAICS|SIC|GICS)$
+  Anomaly Message: 'Invalid data in ''IndustryCodeType''. Expected: Select the type
+    of industry code identification scheme used in Field 8. with allowed values 1.
+    NAICS 2. SIC 3. GICS.'
+- Technical Field Name: InternalRating
+  Is Column Mandatory: Optional
+  Regex: ^[A-Z]{1,5}$
+  Anomaly Message: 'Invalid data in ''InternalRating''. Expected: Report the obligor
+    rating grade from the reporting entity''s internal risk rating system. For fronting
+    exposures, report the participant lender''s rating grade from the reporting entity''s
+    internal risk rating system. This is the reporting entity''s probability of default
+    (PD) rating. If the reporting entity uses a one-dimensional risk rating system,
+    record that rating here. with allowed values Free text indicating the obligor
+    rating grade. Obligor Internal Risk Rating must be consistent with Schedule H.4
+    (Internal Risk Rating Schedule), Field 1..'
+- Technical Field Name: TIN
+  Is Column Mandatory: Optional
+  Regex: ^(?:[0-9]{2}-?[0-9]{6}|[0-9]{9}|NA)$
+  Anomaly Message: 'Invalid data in ''TIN''. Expected: Report the Taxpayer Identification
+    Number (TIN) assigned to the obligor by the U.S. Internal Revenue Service (IRS)
+    in the administration of tax laws. If the borrowing entity is an individual(s)
+    (Natural Person(s)), do not report Social Security Number; instead enter ''NA''.
+    If, the borrowing entity does not have a TIN, enter ''NA''. with allowed values
+    The 9 digit identification assigned by the Internal Revenue Service for the obligor
+    identified in field 2. Allowable forms are either ##-#######, #########, or ''NA''..'
+- Technical Field Name: StockExchange
+  Is Column Mandatory: Optional
+  Regex: ^(NA|[A-Za-z]+ \w+ [A-Za-z]{2,5})(?:\s+(?:[-,\/]|&))?$
+  Anomaly Message: 'Invalid data in ''StockExchange''. Expected: Report the name of
+    the Stock Exchange on which the primary stock of the obligor, or its parent, trades.
+    If the borrowing entity is not publicly traded, enter ''NA''. In cases where the
+    subsidiary is the obligor and the subsidiary is publicly traded, report the Stock
+    Exchange and Ticker Symbol (field #13) of the subsidiary, regardless of ownership
+    structure. If the subsidiary is not publicly traded, but its parent is, report
+    the stock exchange and ticker symbol of the parent. Report in the same manner
+    when the subsidiary is minority owned. with allowed values Free text.'
+- Technical Field Name: TKR
+  Is Column Mandatory: Optional
+  Regex: '^(NA|[A-Z]{1,5}([.-])?[A-Z]{2,4})($|[\s][A-Za-z0-9._%]+))
+
+
+    This pattern will match either ''NA'' or a string consisting of uppercase letters
+    (1 to 5 characters) followed by an optional period or dash and then 2 to 4 more
+    uppercase letters (''.'' or ''-'' not at the beginning or end), space or end of
+    string. Additional characters after the stock symbol are allowed but must be whitespace,
+    A-Z, a-z, digits, periods, underscores or percent signs.'
+  Anomaly Message: 'Invalid data in ''TKR''. Expected: Report the Stock Symbol for
+    stocks listed and traded on the regulated exchange provided in Field 12. For subsidiaries
+    of public companies, use parent ticker symbol from its primary Stock Exchange.
+    If the borrowing entity is not publicly traded, enter ''NA''. In cases where the
+    subsidiary is the obligor and the subsidiary is publicly traded, report the Stock
+    Exchange (field #12) and Ticker Symbol of the subsidiary, regardless of ownership
+    structure. If the subsidiary is not publicly traded, but its parent is, report
+    the stock exchange and ticker symbol of the parent. Report in the same manner
+    when the subsidiary is minority owned. with allowed values Free text.'
