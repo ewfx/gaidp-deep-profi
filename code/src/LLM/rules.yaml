@@ -1,0 +1,129 @@
+rules:
+- Field No.: '1'
+  Field Name: Customer ID
+  Technical Field Name: CustomerID
+  Description: Report the unique internal identifier for the customer relationship
+    under which the obligor's exposure is aggregated in the reporting entity's credit
+    systems. Customer ID is a relationship concept under which multiple borrowers
+    are aggregated because they have related risks, including, but not limited to
+    parent/subsidiary relationships. For stand-alone or ultimate parent obligors,
+    the Customer ID may be the same as the unique internal identifier for the obligor
+    provided in Field 2.
+  Allowable Values: Must not contain a carriage return, line feed, comma or any unprintable
+    character.
+- Field No.: '2'
+  Field Name: Internal ID
+  Technical Field Name: InternalObligorID
+  Description: Report the reporting entity's unique internal identifier for the obligor.
+    Internal ID is a borrower concept that identifies the entity under which multiple
+    loans are aggregated.
+  Allowable Values: Must not contain a carriage return, line feed, comma or any unprintable
+    character.
+- Field No.: '3'
+  Field Name: Original Internal ID
+  Technical Field Name: OriginalInternalObligorID
+  Description: Report the internal identification code assigned to the obligor in
+    the previous submission. If there is no change from the prior submission, or if
+    this is the first submission, the Internal ID reported in Field 2 should be used
+    as the Original Internal ID.
+  Allowable Values: Must not contain a carriage return, line feed, comma or any unprintable
+    character.
+- Field No.: '4'
+  Field Name: Obligor Name
+  Technical Field Name: ObligorName
+  Description: 'Report the obligor name on the credit facility. Full legal corporate
+    name is desirable. If the borrowing entity is an individual(s) (Natural Person(s)),
+    do not report the name; instead substitute with the text: "Individual." For fronting
+    exposures, report legal name of the participant lender.'
+  Allowable Values: Must not contain a carriage return, line feed, comma or any unprintable
+    character.
+- Field No.: '5'
+  Field Name: City
+  Technical Field Name: City
+  Description: Report the name of the city in which the obligor is domiciled (as defined
+    in the FR Y-9C Glossary entry for "domicile").
+  Allowable Values: Free text indicating the City where the Obligor is domiciled.
+- Field No.: '6'
+  Field Name: Country
+  Technical Field Name: Country
+  Description: Report the domicile of the obligor (as defined in the FR Y-9C Glossary
+    entry for "domicile").
+  Allowable Values: Use the 2 letter Country Code22
+- Field No.: '7'
+  Field Name: Zip Code
+  Technical Field Name: ZipCodeForeignMailingCode
+  Description: Report the five-digit zip code for locations within the 50 US states,
+    Washington DC, Puerto Rico, the US Virgin Islands, Guam, Palau, Micronesia, the
+    Northern Marianas, or the Marshall Islands. For all other locations report the
+    foreign mailing code for the domicile of the obligor (as defined in the FR Y-9C
+    Glossary entry for "domicile").
+  Allowable Values: 'For locations within the 50 US states, Washington DC, Puerto
+    Rico, the US Virgin Islands, Guam, Palau, Micronesia, the Northern Marianas, or
+    the Marshall Islands: five-digit ZIP code. If the ZIP code begins with zeroes,
+    leading zeroes must be specified with no punctuation. For International: use country
+    specific postal code.'
+- Field No.: '8'
+  Field Name: Industry Code
+  Technical Field Name: IndustryCode
+  Description: Report the numeric code that describes the primary business activity
+    of the obligor according to the North American Industry Classification System
+    (NAICS). If the NAICS code is not available, provide either the Standard Industrial
+    Classification (SIC), or Global Industry Classification Standard (GICS). If the
+    obligor is an individual, the industry code should be consistent with the industry
+    in which the commercial purpose of the loan operates. If the business or individual
+    operates in multiple industries, the BHC or IHC or SLHC should report the industry
+    that best represents the commercial risk of the loan (i.e., the predominant industry).
+  Allowable Values: Report 4 to 6 digit number. If this code is not available, then
+    provide a SIC or GICS industry code.
+- Field No.: '9'
+  Field Name: Industry Code Type
+  Technical Field Name: IndustryCodeType
+  Description: Select the type of industry code identification scheme used in Field
+    8.
+  Allowable Values: 1. NAICS 2. SIC 3. GICS
+- Field No.: '10'
+  Field Name: Obligor Internal Risk Rating
+  Technical Field Name: InternalRating
+  Description: Report the obligor rating grade from the reporting entity's internal
+    risk rating system. For fronting exposures, report the participant lender's rating
+    grade from the reporting entity's internal risk rating system. This is the reporting
+    entity's probability of default (PD) rating. If the reporting entity uses a one-dimensional
+    risk rating system, record that rating here.
+  Allowable Values: Free text indicating the obligor rating grade. Obligor Internal
+    Risk Rating must be consistent with Schedule H.4 (Internal Risk Rating Schedule),
+    Field 1.
+- Field No.: '11'
+  Field Name: TIN
+  Technical Field Name: TIN
+  Description: Report the Taxpayer Identification Number (TIN) assigned to the obligor
+    by the U.S. Internal Revenue Service (IRS) in the administration of tax laws.
+    If the borrowing entity is an individual(s) (Natural Person(s)), do not report
+    Social Security Number; instead enter 'NA'. If, the borrowing entity does not
+    have a TIN, enter 'NA'.
+  Allowable Values: 'The 9 digit identification assigned by the Internal Revenue Service
+    for the obligor identified in field 2. Allowable forms are either ##-#######,
+    #########, or ''NA''.'
+- Field No.: '12'
+  Field Name: Stock Exchange
+  Technical Field Name: StockExchange
+  Description: 'Report the name of the Stock Exchange on which the primary stock of
+    the obligor, or its parent, trades. If the borrowing entity is not publicly traded,
+    enter ''NA''. In cases where the subsidiary is the obligor and the subsidiary
+    is publicly traded, report the Stock Exchange and Ticker Symbol (field #13) of
+    the subsidiary, regardless of ownership structure. If the subsidiary is not publicly
+    traded, but its parent is, report the stock exchange and ticker symbol of the
+    parent. Report in the same manner when the subsidiary is minority owned.'
+  Allowable Values: Free text
+- Field No.: '13'
+  Field Name: Ticker Symbol
+  Technical Field Name: TKR
+  Description: 'Report the Stock Symbol for stocks listed and traded on the regulated
+    exchange provided in Field 12. For subsidiaries of public companies, use parent
+    ticker symbol from its primary Stock Exchange. If the borrowing entity is not
+    publicly traded, enter ''NA''. In cases where the subsidiary is the obligor and
+    the subsidiary is publicly traded, report the Stock Exchange (field #12) and Ticker
+    Symbol of the subsidiary, regardless of ownership structure. If the subsidiary
+    is not publicly traded, but its parent is, report the stock exchange and ticker
+    symbol of the parent. Report in the same manner when the subsidiary is minority
+    owned.'
+  Allowable Values: Free text
