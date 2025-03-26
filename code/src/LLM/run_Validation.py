@@ -1,3 +1,6 @@
+#TO run 
+# python run_Validation.py FedR.pdf corporateloans_sample.csv vali_report.csv >> data_profiling.log
+
 import subprocess
 import sys
 
